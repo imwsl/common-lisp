@@ -1,0 +1,22 @@
+(defun compress (lst)
+  (if (consp lst)
+      (compr (car lst) 1 (cdr lst))
+    (cons lst nil)))
+
+(defun compr (elt n lst)
+  (if (null lst)
+      (list (make-lst elt n))
+    (let ((x (car lst)))
+      (if (eql x elt)
+	  (compr elt (+ n 1) (cdr lst))
+	(cons (make-lst elt n)
+	      (compr x 1 (cdr lst)))
+	  )
+      ))
+  )
+
+(defun make-lst (elt n)
+  (list n elt)
+  )
+
+(format t "~A~%" (compress '(1 1 0 1 1 1 1 0 0 0 0 1)))
