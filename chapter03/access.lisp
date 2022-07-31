@@ -18,10 +18,12 @@
     (if (null lst)
         nil
         (if (zerop n)
-            (cdr lst)
+            lst
             (our-nthcdr (- n 1) (cdr lst)))))
 
 (printx (our-nthcdr 0 '(a b c)))
 (printx (our-nthcdr 1 '(a b c)))
 (printx (our-nthcdr 2 '(a b c)))
 (printx (our-nthcdr 3 '(a b c)))
+
+(printx (last '(a b c)))
